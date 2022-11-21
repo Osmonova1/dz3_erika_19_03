@@ -62,3 +62,40 @@ modal.addEventListener("click", (event) => {
   }
 });
 
+////////
+
+
+const form = document.querySelectorAll('form')
+
+
+form.forEach((form)=> {
+  postData(form)
+})
+
+function postData (form) {
+  form.addEventListener('submit',(event) => {
+    event.preventDefault()
+    const request = new XMLHttpRequest()
+    request.open('POST', 'server.php')
+    request.setRequestHeader('Content-Type', 'application/json')
+
+    const formData = new FormData(form)
+
+    const obj = {}
+    formData.forEach((item,id) =>{
+      obj[id] = item
+    })
+
+    const data = JSON.stringify(obj)
+
+    request.send(data)
+
+    request.addEventListener('load', () => {
+      if (request.status === 200){
+        const data = JSON.parse(request.status)
+        console.log(data)
+      }
+    })
+
+  })
+}
