@@ -667,7 +667,7 @@ a {
     position: relative;
     width: 100%;
     padding: 40px;
-    background-color: #fff;
+    background-color: #bdb0b0;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     max-height: 80vh;
@@ -712,6 +712,21 @@ a {
     width: 280px;
     margin: 0 auto;
 }
-.show{
+.hide {
+    display: none;
+}
+.show {
     display: block;
+}
+.fade {
+    animation: fade 1.7s linear;
+}
+
+@keyframes fade {
+    0% {
+        opacity: .1;
+    }
+    100% {
+        opacity: 1;
+    }
 }
